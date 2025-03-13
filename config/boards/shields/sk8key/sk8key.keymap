@@ -1,0 +1,39 @@
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &kp 1 &kp 2 &kp 3 &kp 4 &kp 5 &kp DEL
+                &kp Q &kp W &kp E &kp R &kp T &kp BACKSPACE
+                &kp A &kp S &kp D &kp F &kp G &kp ENTER
+                &kp Z &kp X &kp C &kp V &kp B &kp TAB
+                &kp RCTRL &kp LGUI &kp SPACE &kp RALT &kp RSHIFT &mo LAYER_HOLD
+            >;
+        };
+
+        left_click_cluster {
+            bindings = <
+                &kp LEFT_CLICK
+            >;
+        };
+
+        right_click_cluster {
+            bindings = <
+                &kp RIGHT_CLICK
+            >;
+        };
+
+        mouse_wheel_button {
+            bindings = <
+                &kp MOUSE_WHEEL_BUTTON
+            >;
+        };
+
+        backlight {
+            bindings = <
+                &bl_toggle &bl_step &bl_off
+            >;
+        };
+    };
+};

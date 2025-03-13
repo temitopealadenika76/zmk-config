@@ -1,0 +1,10 @@
+if SHIELD_SK8KEY
+    config ZMK_KEYBOARD_SK8KEY
+        default "sk8key"
+
+    config ZMK_BACKLIGHT
+        default y
+
+    config ZMK_BACKLIGHT_IS31FL3731
+        default y
+endif
