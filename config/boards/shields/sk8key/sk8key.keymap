@@ -16,7 +16,7 @@
                 &kp Q &kp W &kp E &kp R &kp T &kp BACKSPACE
                 &kp A &kp S &kp D &kp F &kp G &kp ENTER
                 &kp Z &kp X &kp C &kp V &kp B &kp TAB
-                &kp RCTRL &kp LGUI &kp SPACE &kp RALT &kp RSHIFT &mo LAYER_HOLD
+                &kp RCTRL &kp LGUI &kp SPACE &kp RALT &kp RSHIFT &kp \
             >;
         };
 
