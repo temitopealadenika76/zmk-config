@@ -38,7 +38,7 @@
                             rows = <6>;
 
                             map = <
-                                        ROW_COL(0,1)         ROW_COL(0,3)
+                                             ROW_COL(0,1)              ROW_COL(0,3)
                                 ROW_COL(1,0) ROW_COL(1,1) ROW_COL(1,2) ROW_COL(1,3) ROW_COL(1,4) ROW_COL(1,5)
                                 ROW_COL(2,0) ROW_COL(2,1) ROW_COL(2,2) ROW_COL(2,3) ROW_COL(2,4) ROW_COL(2,5)
                                 ROW_COL(3,0) ROW_COL(3,1) ROW_COL(3,2) ROW_COL(3,3) ROW_COL(3,4) ROW_COL(3,5)
