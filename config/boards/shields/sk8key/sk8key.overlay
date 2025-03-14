@@ -59,12 +59,21 @@
             #binding-cells = <0>;
             bindings = <&fw_ops>;
         };
+
         bt_clr: bt_clear {
             compatible = "zmk,behavior-mod-morph";
             label = "BT_CLR";
             #binding-cells = <0>;
-            bindings = <&kp>;
+            bindings = <&fw_ops>, <&kp RCTRL>;
         };
+
+        bt_next: bt_next {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_NEXT";
+            #binding-cells = <0>;
+            bindings = <&fw_ops>, <&kp TAB>;
+        };
+
         reset: reset {
             compatible = "zmk,behavior-reset";
             label = "RESET";
@@ -72,4 +81,3 @@
         };
     };
 };
-
