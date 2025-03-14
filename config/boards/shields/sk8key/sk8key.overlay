@@ -54,22 +54,10 @@
 / {
     behaviors {
         fw_ops: fw_ops_key {
-            compatible = "zmk,behavior-mod-morph";
+            compatible = "zmk,behavior-key-press";
             label = "FW_OPS";
             #binding-cells = <0>;
-            bindings = <&kp>;
-        };
-
-        bt_clr: bt_clear {
-            compatible = "zmk,behavior-bluetooth-clear";
-            label = "BT_CLR";
-            #binding-cells = <0>;
-        };
-
-        bt_next: bt_next {
-            compatible = "zmk,behavior-bluetooth-next";
-            label = "BT_NEXT";
-            #binding-cells = <0>;
+            bindings = <&fw_ops>;
         };
 
         reset: reset {
