@@ -24,7 +24,7 @@
   kscan0: kscan_0 {
       compatible = "zmk,kscan-gpio-matrix";
       label = "KSCAN";
-      diode-direction = "col2row";
+      diode-direction = "row2col";
 
       col-gpios
           = <&pro_micro 1 GPIO_ACTIVE_HIGH>  // D1 -> P0.06
@@ -48,7 +48,7 @@
   led_controller: sk6812e_mini {
       compatible = "sk6812e-mini";
       label = "SK6812E_MINI";
-      input-pin = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+      input-pin = <&pro_micro 21 GPIO_ACTIVE_HzIGH>;
       output-pin = <&pro_micro 22 GPIO_ACTIVE_HIGH>;
       chain-length = <32>;
   };
