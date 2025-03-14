@@ -67,7 +67,7 @@
 / {
     combos {
         bt_pairing_combo {
-            bindings = <&bt_clr>, <&bt_next>
+            bindings = <&bt_clr>, <&bt_next>;
             key-positions = <30 31>;
             timeout-ms = <1000>;
             slow-release;
