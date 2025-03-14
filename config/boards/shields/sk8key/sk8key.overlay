@@ -23,7 +23,7 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";  // Change to "row2col" if needed
+        diode-direction = "row2col";  // Change to "row2col" if needed
 
         col-gpios
             = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
@@ -46,7 +46,7 @@
     led_backlight: backlight {
         compatible = "worldsemi,ws2812";
         chain-length = <32>;
-        color-order = "GRBW"; // Adjust if colors are off (try RGBW)
+        color-order = "RGBW"; // Adjust if colors are off (try RGBW)
         spi-max-frequency = <8000000>;
         data-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
     };
