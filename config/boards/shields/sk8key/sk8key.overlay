@@ -61,7 +61,24 @@
             label = "FW_OPS";
             #binding-cells = <0>;
         };
-    };
+
+        bt_clr: bt_clear {
+            compatible = "zmk,behavior-bluetooth-clear";
+            label = "BT_CLR";
+            #binding-cells = <0>;
+        };
+
+        bt_next: bt_next {
+            compatible = "zmk,behavior-bluetooth-next";
+            label = "BT_NEXT";
+            #binding-cells = <0>;
+        };
+
+        reset: reset {
+            compatible = "zmk,behavior-reset";
+            label = "RESET";
+            #binding-cells = <0>;
+        };
 };
 
 / {
@@ -79,6 +96,20 @@
             timeout-ms = <1000>;
             slow-release;
         };
+        fw_ops_ctrl_bt_clr_combo {
+            bindings = <&bt_clr>;
+            key-positions = <30 34>;  // Adjust these positions to match FW_OPS and CTRL
+            timeout-ms = <1000>;
+            slow-release;
+        };
+
+        fw_ops_ctrl_bt_next_combo {
+            bindings = <&bt_next>;
+            key-positions = <30 29>;  // Adjust these positions to match FW_OPS and another key
+            timeout-ms = <1000>;
+            slow-release;
+        };
+    };
     };
 
 };
