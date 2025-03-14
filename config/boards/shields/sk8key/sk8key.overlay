@@ -36,7 +36,7 @@
             ;
 
         row-gpios
-            = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → 🖱️ Mouse Cluster (P009)
+            = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → ️ Mouse Cluster (P009)
             , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
             , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 2 → Top (P107)
             , <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 3 → Home (P102)
