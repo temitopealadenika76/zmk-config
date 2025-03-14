@@ -18,12 +18,6 @@
                 &kp RCTRL &kp LGUI &kp SPACE &kp RALT &kp RSHIFT &kp BACKSLASH
             >;
         };
-
-        backlight {
-            bindings = <
-                &bl_toggle &bl_step &bl_off
-            >;
-        };
     };
 };
 
