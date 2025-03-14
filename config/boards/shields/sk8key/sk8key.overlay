@@ -48,7 +48,7 @@
   led_controller: sk6812e_mini {
       compatible = "sk6812e-mini";
       label = "SK6812E_MINI";
-      input-pin = <&pro_micro 21 GPIO_ACTIVE_HzIGH>;
+      input-pin = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
       output-pin = <&pro_micro 22 GPIO_ACTIVE_HIGH>;
       chain-length = <32>;
   };
