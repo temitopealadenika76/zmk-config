@@ -57,6 +57,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "FW_OPS";
             #binding-cells = <0>;
+            bindings = <&kp>;
         };
 
         bt_clr: bt_clear {
