@@ -51,7 +51,7 @@
     };
 };
 
-&{
+/ {
     behaviors {
         fw_ops: fw_ops_key {
             compatible = "zmk,behavior-mod-morph";
@@ -77,8 +77,11 @@
             #binding-cells = <0>;
         };
     };
+};
 
+/ {
     combos {
+
         bt_pairing_combo {
             bindings = <&bt_clr>, <&bt_next>;
             key-positions = <30 31>;
