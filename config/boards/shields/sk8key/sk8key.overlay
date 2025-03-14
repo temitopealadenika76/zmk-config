@@ -64,8 +64,8 @@
 / {
     combos {
         bt_pairing_combo {
-            bindings = <&bt_clr>, <&bt_next>;
-            key-positions = <30 31>;  // FW_OPS (Row 5, Col 0) + Another Key (Row 5, Col 1)
+            bindings = <&bt BT_CLR>, <&bt BT_NEXT>;
+            key-positions = <30 31>;
             timeout-ms = <1000>;
             slow-release;
         };
