@@ -23,7 +23,6 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "row2col";
 
         col-gpios
@@ -47,11 +46,9 @@
 
     led_backlight: backlight {
         compatible = "worldsemi,ws2812";
-        label = "BACKLIGHT";
         chain-length = <32>;
         color-order = "GRBW"; // Adjust if colors are off (try RGBW)
         spi-max-frequency = <8000000>;
         data-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
     };
-
 };
