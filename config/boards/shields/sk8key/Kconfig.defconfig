@@ -1,17 +1,11 @@
 if SHIELD_SK8KEY
-    config ZMK_KEYBOARD_SK8KEY
-        default "sk8key"
 
-    config ZMK_RGB_BACKLIGHT
-        bool "Enable RGB Backlight"
-        default y
+config ZMK_KEYBOARD_SK8KEY
+    default "sk8key"
 
-    config ZMK_BACKLIGHT_SK6812E_MINI
-        bool "Enable SK6812E Mini Backlight"
-        default y
-endif
-
-if ZMK_RGB_BACKLIGHT
+config ZMK_RGB_BACKLIGHT
+    bool "Enable RGB Backlight"
+    default y
 
 config LED_STRIP
     bool "Enable LED Strip Support"
@@ -19,10 +13,12 @@ config LED_STRIP
 
 config WS2812_STRIP
     bool "Enable WS2812-based LED strips"
+    depends on ZMK_RGB_BACKLIGHT
     default y
 
 config WS2812_LED_COUNT
     int "Number of WS2812 LEDs"
+    depends on WS2812_STRIP
     default 32
 
-endif # ZMK_RGB_BACKLIGHT
+endif # SHIELD_SK8KEY
