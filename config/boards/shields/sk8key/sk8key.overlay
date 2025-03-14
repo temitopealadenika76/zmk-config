@@ -1,84 +1,85 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
- / {
-    chosen {
-        zmk,kscan = &default_kscan;
-        zmk,matrix_transform = &default_transform;
-    };
+            #include <dt-bindings/zmk/keys.h>
+            #include <dt-bindings/zmk/bt.h>
 
-    default_kscan: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan";
-        diode-direction = "col2row";  // Change to "row2col" if needed
+            #define RC(row, col) ((row) * MATRIX_COLS + (col))
 
-        col-gpios
-            = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
-            , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
-            , <&pro_micro 4 GPIO_ACTIVE_HIGH>   // Middle → P022
-            , <&pro_micro 5 GPIO_ACTIVE_HIGH>   // Index → P024
-            , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Inner → P100
-            , <&pro_micro 8 GPIO_ACTIVE_HIGH>;  // Mod → P104
+            / {
+                chosen {
+                    zmk,kscan = &default_kscan;
+                    zmk,matrix_transform = &default_transform;
+                };
 
-        row-gpios
-            = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → 🖱️ Mouse Cluster (P009)
-            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 2 → Top (P107)
-            , <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 3 → Home (P102)
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 4 → Bottom (P101)
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 5 → Mod (P011)
-    };
+                default_kscan: kscan {
+                    compatible = "zmk,kscan-gpio-matrix";
+                    label = "default_kscan";
+                    diode-direction = "col2row";  // Change to "row2col" if needed
 
-    default_transform: matrix_transform {
-        compatible = "zmk,matrix-transform";
-        columns = <6>;
-        rows = <6>;
+                    col-gpios
+                        = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
+                        , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
+                        , <&pro_micro 4 GPIO_ACTIVE_HIGH>   // Middle → P022
+                        , <&pro_micro 5 GPIO_ACTIVE_HIGH>   // Index → P024
+                        , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Inner → P100
+                        , <&pro_micro 8 GPIO_ACTIVE_HIGH>;  // Mod → P104
 
-        map = <
-                    MATRIX_KEY(0,1)         MATRIX_KEY(0,3)
-            MATRIX_KEY(1,0) MATRIX_KEY(1,1) MATRIX_KEY(1,2) MATRIX_KEY(1,3) MATRIX_KEY(1,4) MATRIX_KEY(1,5)
-            MATRIX_KEY(2,0) MATRIX_KEY(2,1) MATRIX_KEY(2,2) MATRIX_KEY(2,3) MATRIX_KEY(2,4) MATRIX_KEY(2,5)
-            MATRIX_KEY(3,0) MATRIX_KEY(3,1) MATRIX_KEY(3,2) MATRIX_KEY(3,3) MATRIX_KEY(3,4) MATRIX_KEY(3,5)
-            MATRIX_KEY(4,0) MATRIX_KEY(4,1) MATRIX_KEY(4,2) MATRIX_KEY(4,3) MATRIX_KEY(4,4) MATRIX_KEY(4,5)
-            MATRIX_KEY(5,0) MATRIX_KEY(5,1) MATRIX_KEY(5,2) MATRIX_KEY(5,3) MATRIX_KEY(5,4) MATRIX_KEY(5,5)
-        >;
-    };
+                    row-gpios
+                        = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → 🖱️ Mouse Cluster (P009)
+                        , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
+                        , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 2 → Top (P107)
+                        , <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 3 → Home (P102)
+                        , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 4 → Bottom (P101)
+                        , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 5 → Mod (P011)
+                };
 
-    led_backlight: backlight {
-        compatible = "worldsemi,ws2812";
-        chain-length = <32>;
-        color-order = "GRBW"; // Adjust if colors are off (try RGBW)
-        spi-max-frequency = <4000000>;
-        data-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
-    };
-};
+                default_transform: matrix_transform {
+                    compatible = "zmk,matrix-transform";
+                    columns = <6>;
+                    rows = <6>;
 
-/ {
-    behaviors {
-        fw_ops: fw_ops_key {
-            compatible = "zmk,behavior-mod-morph";
-            label = "FW_OPS";
-            #binding-cells = <0>;
-        };
-    };
-};
+                    map = <
+                                RC(0,1)         RC(0,3)
+                        RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)
+                        RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)
+                        RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)
+                        RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)
+                        RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5)
+                    >;
+                };
 
-/ {
-    combos {
-        bt_pairing_combo {
-            bindings = <&bt_clr>, <&bt_next>
-            key-positions = <30 31>;
-            timeout-ms = <1000>;
-            slow-release;
-        };
+                led_backlight: backlight {
+                    compatible = "worldsemi,ws2812";
+                    chain-length = <32>;
+                    color-order = "GRBW"; // Adjust if colors are off (try RGBW)
+                    spi-max-frequency = <4000000>;
+                    data-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
+                };
+            };
 
-        reset_combo {
-            bindings = <&reset>;
-            key-positions = <30 35>;  // FW_OPS (Row 5, Col 0) + RSHIFT (Row 5, Col 5)
-            timeout-ms = <1000>;
-            slow-release;
-        };
-    };
+            / {
+                behaviors {
+                    fw_ops: fw_ops_key {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "FW_OPS";
+                        #binding-cells = <0>;
+                    };
+                };
+            };
 
-};
+            / {
+                combos {
+                    bt_pairing_combo {
+                        bindings = <&bt_clr>, <&bt_next>
+                        key-positions = <30 31>;
+                        timeout-ms = <1000>;
+                        slow-release;
+                    };
 
+                    reset_combo {
+                        bindings = <&reset>;
+                        key-positions = <30 35>;  // FW_OPS (Row 5, Col 0) + RSHIFT (Row 5, Col 5)
+                        timeout-ms = <1000>;
+                        slow-release;
+                    };
+                };
+            };
