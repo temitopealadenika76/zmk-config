@@ -45,12 +45,11 @@
                 ;
         };
 
-            led_controller: is31fl3731@74 {
-                compatible = "issi,is31fl3731";
-                reg = <0x74>;
-                label = "IS31FL3731";
-                enable-gpios = <&pro_micro 3 GPIO_ACTIVE_HIGH>; // Adjust as needed
-                i2c-bus = <&i2c0>;
-                frame-rate = <30>;
-            };
+        led_controller: sk6812e_mini {
+            compatible = "sk6812e-mini";
+            label = "SK6812E_MINI";
+            input-pin = <&pro_micro 21 GPIO_ACTIVE_HIGH>; // Adjust as needed
+            output-pin = <&pro_micro 22 GPIO_ACTIVE_HIGH>; // Adjust as needed
+            chain-length = <32>; // Number of LEDs in the chain
+        };
     };

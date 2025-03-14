@@ -5,6 +5,16 @@ if SHIELD_SK8KEY
     config ZMK_BACKLIGHT
         default y
 
-    config ZMK_BACKLIGHT_IS31FL3731
+    config ZMK_BACKLIGHT_SK6812E_MINI
         default y
 endif
+
+if ZMK_BACKLIGHT
+
+config PWM
+    default y
+
+config LED_PWM
+    default y
+
+endif # ZMK_BACKLIGHT
