@@ -3,18 +3,22 @@ if SHIELD_SK8KEY
         default "sk8key"
 
     config ZMK_BACKLIGHT
+        bool "Enable Backlight"
         default y
 
     config ZMK_BACKLIGHT_SK6812E_MINI
+        bool "Enable SK6812E Mini Backlight"
         default y
 endif
 
 if ZMK_BACKLIGHT
 
 config PWM
+    bool "Enable PWM"
     default y
 
 config LED_PWM
+    bool "Enable LED PWM"
     default y
 
 endif # ZMK_BACKLIGHT
