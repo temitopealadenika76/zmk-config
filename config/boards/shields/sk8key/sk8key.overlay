@@ -37,9 +37,9 @@
 
          row-gpios
              = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // D7 -> P0.11
-             , <&pro_micro 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D11 -> P1.01
-             , <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D12 -> P1.02
-             , <&pro_micro 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D13 -> P1.07
+             , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D11 -> P1.01
+             , <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D12 -> P1.02
+             , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // D13 -> P1.07
              , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // D9 -> P1.06
              , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // D10 -> P0.09
              ;
