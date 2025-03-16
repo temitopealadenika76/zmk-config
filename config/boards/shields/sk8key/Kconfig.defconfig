@@ -2,6 +2,7 @@ if SHIELD_SK8KEY
 
 config ZMK_KEYBOARD_SK8KEY
     default "sk8key"
+endif # SHIELD_SK8KEY
 
 if ZMK_BACKLIGHT
 
@@ -11,4 +12,6 @@ config PWM
 config LED_PWM
     default y
 
-endif # SHIELD_SK8KEY
+endif # ZMK_BACKLIGHT
+
+
