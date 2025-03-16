@@ -3,23 +3,15 @@ if SHIELD_SK8KEY
 config ZMK_KEYBOARD_SK8KEY
     default "sk8key"
 
-config ZMK_RGB_BACKLIGHT
-    bool "Enable RGB Backlight"
+if ZMK_BACKLIGHT
+
+config PWM
     default y
 
-config LED_STRIP
-    bool "Enable LED Strip Support"
+config LED_PWM
     default y
 
-config WS2812_STRIP
-    bool "Enable WS2812-based LED strips"
-    depends on ZMK_RGB_BACKLIGHT
-    default y
-
-config WS2812_LED_COUNT
-    int "Number of WS2812 LEDs"
-    depends on WS2812_STRIP
-
+endif # ZMK_BACKLIGHT
 
 
 
