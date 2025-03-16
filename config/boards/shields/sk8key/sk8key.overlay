@@ -22,7 +22,7 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";  // Change to "row2col" if needed
+        diode-direction = "row2col";  // Change to "row2col" if needed
 
         col-gpios
             = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
