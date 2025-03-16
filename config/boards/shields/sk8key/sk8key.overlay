@@ -11,7 +11,7 @@
         rows = <6>;
 
         map = <
-            RC(0,1)         RC(0,3)
+                    RC(0,1)         RC(0,3)
             RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)
             RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)
             RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)
@@ -35,9 +35,9 @@
         row-gpios
             = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → ️ Mouse Cluster (P009)
             , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 2 → Top (P107)
-            , <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 3 → Home (P102)
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 4 → Bottom (P101)
+            , <&gpio1 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 2 → Top (P107)
+            , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 3 → Home (P102)
+            , <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 4 → Bottom (P101)
             , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 5 → Mod (P011)
     };
 
