@@ -43,8 +43,8 @@
             , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 5 → Mod (P011)
     };
 
-    led_backlight: backlight {
-        compatible = "worldsemi,ws2812";
+    led_backlight: ws2812 {
+        compatible = "worldsemi,ws2812-spi";
         chain-length = <32>;
         color-order = "GRBW"; // Adjust if colors are off (try RGBW)
         spi-max-frequency = <4000000>;
