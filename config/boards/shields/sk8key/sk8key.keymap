@@ -22,4 +22,7 @@
     };
 };
 
+&backlight {
+    chain-length = <32>;
+};
 
