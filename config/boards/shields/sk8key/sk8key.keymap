@@ -11,7 +11,7 @@
 
         default_layer {
             bindings = <
-                                        &mkp LCLK   &kp STAR    &mkp RCLK
+                                        &kp A       &kp B       &kp C
                 &kp N1      &kp N2      &kp N3      &kp N4      &kp N5       &kp DEL
                 &kp Q       &kp W       &kp E       &kp R       &kp T       &kp BACKSPACE
                 &kp A       &kp S       &kp D       &kp F       &kp G       &kp ENTER
