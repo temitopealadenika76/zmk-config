@@ -19,7 +19,7 @@
                 &kp CLCK            &kp RCTRL   &kp LGUI    &kp SPACE   &kp RALT    &kp RSHFT
                 &kp C_PLAY_PAUSE
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &zip_button_behaviors>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &zip_button_behaviors> SCRL_UP SCRL_DOWN>;
         };
     };
 };
