@@ -17,7 +17,6 @@
                 &kp A       &kp S       &kp D       &kp F       &kp G       &kp ENTER
                 &kp Z       &kp X       &kp C       &kp V       &kp B       &kp TAB
                 &kp CLCK    &kp RCTRL   &kp LGUI    &kp SPACE   &kp RALT    &kp RSHFT
-                &kp MUTE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
