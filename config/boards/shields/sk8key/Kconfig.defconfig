@@ -7,10 +7,10 @@ endif # SHIELD_SK8KEY
 if ZMK_BACKLIGHT
 
 config PWM
-    default N
+    default Y
 
 config LED_PWM
-    default N
+    default Y
 
 endif # ZMK_BACKLIGHT
 
