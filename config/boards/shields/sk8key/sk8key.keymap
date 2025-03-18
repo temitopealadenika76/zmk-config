@@ -19,6 +19,7 @@
                 &kp CLCK    &kp RCTRL   &kp LGUI    &kp SPACE   &kp RALT    &kp RSHFT
                 &kp MUTE
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
