@@ -12,7 +12,7 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder &left_mouse_scroll>;
-        triggers-per-rotation = <20 24>;
+        triggers-per-rotation = <20>;
     };
 
     default_transform: keymap_transform_0 {
