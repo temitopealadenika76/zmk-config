@@ -24,7 +24,24 @@
         >;
     };
 
-    kscan0: kscan_0 {
+
+
+    kscan0: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <7>;
+        columns = <6>;
+
+        matrix {
+            kscan = <&kscan1>;
+        };
+
+        direct {
+            kscan = <&kscan2>;
+            row-offset = <6>;
+        };
+    };
+
+    kscan1: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";  // Change to "row2col" if needed
 
@@ -36,8 +53,6 @@
             , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
             , <&pro_micro 1 GPIO_ACTIVE_HIGH>;   // Pinky → P006
 
-
-
         row-gpios
             = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → ️ Mouse Cluster (P009)
             , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
@@ -46,6 +61,14 @@
             , <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>      // Row 4 → Bottom (P101)
             , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 5 → Mod (P011)
     };
+
+    kscan2: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+          wakeup-source;
+           input-gpios
+               = <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+               ;
+    }
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
