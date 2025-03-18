@@ -11,13 +11,13 @@
 
         default_layer {
             bindings = <
-                                        &mkp LCLK   &mkp MCLK   &mkp RCLK
-                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5       &kp DEL
-                &kp Q       &kp W       &kp E       &kp R       &kp T       &kp BACKSPACE
-                &kp A       &kp S       &kp D       &kp F       &kp G       &kp ENTER
-                &kp Z       &kp X       &kp C       &kp V       &kp B       &kp TAB
-                &kp CLCK    &kp RCTRL   &kp LGUI    &kp SPACE   &kp RALT    &kp RSHFT
-                &kp MUTE
+                                                &mkp LCLK   &mkp MCLK   &mkp RCLK
+                &kp N1              &kp N2      &kp N3      &kp N4      &kp N5       &kp DEL
+                &kp Q               &kp W       &kp E       &kp R       &kp T       &kp BACKSPACE
+                &kp A               &kp S       &kp D       &kp F       &kp G       &kp ENTER
+                &kp Z               &kp X       &kp C       &kp V       &kp B       &kp TAB
+                &kp CLCK            &kp RCTRL   &kp LGUI    &kp SPACE   &kp RALT    &kp RSHFT
+                &kp C_PLAY_PAUSE
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
