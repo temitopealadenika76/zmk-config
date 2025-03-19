@@ -22,8 +22,19 @@ config I2C
 config SSD1306
     default y
 
-choice ZMK_DISPLAY_WORK_QUEUE
-    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
+    select LV_USE_CONT
+    select LV_FONT_MONTSERRAT_26
+    select LV_FONT_MONTSERRAT_16
+    select LV_USE_LABEL
+    select LV_USE_IMG
+
+config SSD1306_REVERSE_MODE
+    bool
+	default n
+
+
+# choice ZMK_DISPLAY_WORK_QUEUE
+#     default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
 endchoice
 
 endif
