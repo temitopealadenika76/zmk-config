@@ -35,6 +35,5 @@ config SSD1306_REVERSE_MODE
 
 # choice ZMK_DISPLAY_WORK_QUEUE
 #     default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
-endchoice
 
 endif
