@@ -166,7 +166,7 @@
         segment-remap;
         com-invdir;
         com-sequential;
-        inversion-on;
+        //inversion-on; //this swaps the colors for the display from black on white to white on black
         prechargep = <0x22>;
     };
 };
