@@ -1,8 +1,17 @@
-if SHIELD_SK8KEY
+if SHIELD_SK8KEY_LEFT
 
 config ZMK_KEYBOARD_SK8KEY
     default "sk8key"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+  default y
+
 endif # SHIELD_SK8KEY
+
+if ZMK_KEYBOARD_SK8KEY_LEFT || ZMK_KEYBOARD_SK8KEY_RIGHT
+
+config ZMK_SPLIT
+    default y
 
 if ZMK_BACKLIGHT
 
@@ -52,4 +61,5 @@ endif # LVGL
 # choice ZMK_DISPLAY_WORK_QUEUE
 #     default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
 
+endif
 endif

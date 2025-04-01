@@ -1,2 +1,5 @@
-config ZMK_KEYBOARD_SK8KEY
-    def_bool $(shields_list_contains, sk8key)
+config ZMK_KEYBOARD_SK8KEY_LEFT
+    def_bool $(shields_list_contains, sk8key_left)
+
+config ZMK_KEYBOARD_SK8KEY_RIGHT
+    def_bool $(shields_list_contains, sk8key_right)
