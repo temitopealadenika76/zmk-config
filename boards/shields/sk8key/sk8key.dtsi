@@ -52,16 +52,6 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";  // Change to "row2col" if needed
 
-        col-gpios
-
-            = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
-            , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
-            , <&pro_micro 4 GPIO_ACTIVE_HIGH>   // Middle → P022
-            , <&pro_micro 5 GPIO_ACTIVE_HIGH>   // Index → P024
-            , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Inner → P100
-            , <&pro_micro 8 GPIO_ACTIVE_HIGH>;  // Mod → P104
-
-
         row-gpios
             = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 0 → ️ Mouse Cluster (P009)
             , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Row 1 → Num (P106)
