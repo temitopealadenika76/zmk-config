@@ -1,6 +1,6 @@
 #include "sk8key.dtsi"
 
-    &kscan0 {
+    &kscan1 {
         col-gpios
 
             = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
