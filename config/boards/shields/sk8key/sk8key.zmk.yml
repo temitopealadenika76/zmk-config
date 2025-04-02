@@ -1,0 +1,11 @@
+file_format: "1"
+id: sk8key
+name: sk8key
+type: shield
+url: https://github.com/temitopealadenika76/zmk-config.git
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - sk8key_left
+  - sk8key_right
