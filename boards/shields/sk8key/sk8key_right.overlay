@@ -25,4 +25,7 @@
     status = "okay";
 };
 
+&kscan3 {
+    status = "okay";
+};
 
