@@ -15,11 +15,11 @@
 
     };
 
-    left_encoder     {
+    &left_encoder     {
         status = "okay";
     };
 
-    left_mouse_scroll {
+    &left_mouse_scroll {
         status = "okay";
     };
 };

@@ -17,11 +17,11 @@
 
     };
 
-    right_encoder     {
+    &right_encoder     {
         status = "okay";
     };
 
-    right_mouse_scroll {
+    &right_mouse_scroll {
         status = "okay";
     };
 };
