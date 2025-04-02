@@ -70,7 +70,6 @@
            input-gpios
                = <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
                ;
-        status = "disabled";
     };
 
     kscan3: kscan_direct_right {
@@ -79,7 +78,6 @@
            input-gpios
                = <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
                ;
-       status = "disabled";
     };
 
     left_encoder: encoder_left {
