@@ -1,7 +1,5 @@
 #include "sk8key.dtsi"
 
-
-
     &kscan0 {
         col-gpios
 
@@ -22,5 +20,4 @@
     &left_mouse_scroll {
         status = "okay";
     };
-};
 
