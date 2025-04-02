@@ -1,6 +1,6 @@
 if SHIELD_SK8KEY_LEFT
 
-config ZMK_KEYBOARD_SK8KEY
+config ZMK_KEYBOARD_NAME
     default "sk8key"
 
 config ZMK_SPLIT_ROLE_CENTRAL
