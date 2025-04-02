@@ -60,11 +60,11 @@
             label = "config";
             bindings = <
                                          &mkp LCLK        &mkp MCLK         &mkp RCLK                                                                                            &mkp LCLK         &mkp MCLK         &mkp RCLK
-                     &bt BT_CLR          &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4                &none               &none            &none             &none             &none             &none
+                     &none               &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &bt BT_SEL 4                &none               &none            &none             &none             &none             &none
                      &ext_power EP_TOG   &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
-                     &none               &none            &none             &none             &mo 1             &none                       &none               &none            &none             &none             &none             &none
+                     &bt BT_CLR          &none            &none             &none             &mo 1             &none                       &none               &none            &none             &none             &none             &none
                                                                                                                 &none                       &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
