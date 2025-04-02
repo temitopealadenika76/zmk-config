@@ -51,7 +51,7 @@
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
-                                                                                                                &kp led_brightness          &kp oled_brightness
+                                                                                                                &kp led_brightness          &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
@@ -65,7 +65,7 @@
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
-                                                                                                                &kp led_brightness          &kp oled_brightness
+                                                                                                                &kp led_brightness          &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
