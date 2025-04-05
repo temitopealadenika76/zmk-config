@@ -30,6 +30,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            label = "default";
             bindings = <
                                     &kp K_PREV   &mkp MCLK   &kp C_NEXT                                                                       &mkp LCLK     &mkp MCLK     &mkp RCLK
                      &kp GRAVE      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                      &kp N6          &kp N7        &kp N8        &kp N9        &kp N0        &kp DEL
@@ -50,7 +51,7 @@
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
-                     &none               &none            &none             &none             &mo 1             &none                       &none               &none            &none             &none             &none             &none
+                     &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                                                                                                                 &none                       &none
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
