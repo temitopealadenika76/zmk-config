@@ -1,23 +1,23 @@
 #include "sk8key.dtsi"
 
-    &kscan1 {
-        col-gpios
+&kscan1 {
+    col-gpios
 
-            = <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
-            , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
-            , <&pro_micro 4 GPIO_ACTIVE_HIGH>   // Middle → P022
-            , <&pro_micro 5 GPIO_ACTIVE_HIGH>   // Index → P024
-            , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Inner → P100
-            , <&pro_micro 8 GPIO_ACTIVE_HIGH>  // Mod → P104
-            ;
+        = <&pro_micro 8 GPIO_ACTIVE_HIGH>   // Mod → P104
+        , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Inner → P100
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH>   // Index → P024
+        , <&pro_micro 4 GPIO_ACTIVE_HIGH>   // Middle → P022
+        , <&pro_micro 0 GPIO_ACTIVE_HIGH>   // Ring → P008
+        , <&pro_micro 1 GPIO_ACTIVE_HIGH>   // Pinky → P006
+        ;
 
-    };
+};
 
-    &left_encoder     {
-        status = "okay";
-    };
+&left_encoder     {
+    status = "okay";
+};
 
-    &left_mouse_scroll {
-        status = "okay";
-    };
+&left_mouse_scroll {
+    status = "okay";
+};
 
