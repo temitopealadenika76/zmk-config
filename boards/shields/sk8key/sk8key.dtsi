@@ -42,6 +42,7 @@
 
         direct_left {
             kscan = <&kscan2>;
+            row-offset = <6>;
         };
 
         direct_right {
