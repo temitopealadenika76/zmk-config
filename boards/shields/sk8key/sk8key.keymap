@@ -31,6 +31,13 @@
             tap-ms = <20>;
             bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
         };
+
+        led_sat: led_saturation {
+          compatible = "zmk,behavior-sensor-rotate";
+          #sensor-binding-cells = <0>;
+          tap-ms = <20>;
+          bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
+        };
     };
 
     keymap {
@@ -59,8 +66,8 @@
                      &kp TAB                         &kp GRAVE         &none                &none                  &none                 &none                           &kp KP_N7             &kp KP_N8               &kp KP_N9                 &kp MINUS              &kp EQUAL                &kp BACKSPACE
                      &kp CLCK                       &none                &none                 &none                  &none                 &none                           &kp KP_N4             &kp KP_N5               &kp KP_N6                &kp LBKT                 &kp RBKT                  &kp ENTER
                      &kp LSHIFT                    &none                &none                 &none                  &none                 &none                           &kp KP_N1              &kp KP_N2               &kp KP_N3                &kp UP                     &kp BSLH                  &kp RSHIFT
-                     &bt BT_CLR                    &none                &none                 &mo 3                  &kp SPACE         &kp SPACE                    &kp SPACE             &kp SPACE              &kp LEFT                  &kp DOWN               &kp RIGHT                 &kp RCTRL
-                                                                                                                                                                        &none                           &none
+                     &bt LCTRL                    &none                &none                 &mo 3                  &kp SPACE         &kp SPACE                    &kp SPACE             &kp SPACE              &kp LEFT                  &kp DOWN               &kp RIGHT                 &kp RCTRL
+                                                                                                                                                                       &none                           &none
             >;
             sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
@@ -76,7 +83,7 @@
                      &bt BT_CLR                    &none                &none                 &mo 3                  &none                 &none                           &none               &none                 &none                 &none              &none             &none
                                                                                                                                                                         &none                           &none
             >;
-            sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
+            sensor-bindings = <&led_hue &led_brightness  &led_sat &emw>;
         };
 
 
