@@ -24,6 +24,13 @@
             tap-ms = <20>;
             bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
         };
+
+        led_hue: hue {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUI>;
+        };
     };
 
     keymap {
@@ -40,7 +47,7 @@
                      &kp LCTRL      &kp LGUI     &kp LALT    &mo 3      &kp SPACE       &kp SPACE                     &kp SPACE         &kp SPACE     &kp RGUI           &kp SPACE     &kp RALT        &kp RCTRL
                                                                                                                             &kp C_PP                        &kp C_MUTE
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
+            sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
 
 
@@ -55,7 +62,7 @@
                      &bt BT_CLR                    &none                &none                 &mo 3                  &kp SPACE         &kp SPACE                    &kp SPACE             &kp SPACE              &kp LEFT                  &kp DOWN               &kp RIGHT                 &kp RCTRL
                                                                                                                                                                         &none                           &none
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
+            sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
 
         config_layer {
@@ -69,7 +76,7 @@
                      &bt BT_CLR                    &none                &none                 &mo 3                  &none                 &none                           &none               &none                 &none                 &none              &none             &none
                                                                                                                                                                         &none                           &none
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
+            sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
 
 
@@ -84,7 +91,7 @@
                      &none               &none            &none             &none             &none             &none                       &none               &none            &none             &none             &none             &none
                                                                                                                                           &none                       &none
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
+            sensor-bindings = <&led_hue &led_brightness  &inc_dec_kp C_VOL_UP C_VOL_DN &emw>;
         };
     };
 };
