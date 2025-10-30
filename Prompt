@@ -1,0 +1,143 @@
+Improving Speech-to-Text Accuracy with GitHub Copilot
+
+This document provides a comprehensive set of instructions, prompts, and code comments that can be added to your GitHub repository to guide Copilot toward improving your Speech-to-Text (STT) system's accuracy. These suggestions address issues such as repeated words, hallucinated (extra) words, and incorrect transcriptions.
+
+
+A) Audio Front-End (Noise & Gain)
+
+// TASK: Improve STT accuracy by fixing the audio front-end.
+// Requirements:
+// - Force mono 16 kHz PCM, 16-bit, little-endian.
+// - Add denoise and AGC with conservative settings (avoid clipping).
+// - Hard-limit peak to -3 dBFS and normalize RMS to ~-20 dBFS.
+// - Reject chunks where clipping_ratio > 1% or SNR < 10 dB.
+// - Unit test: verify resampler, channel downmix, and peak/RMS stats.
+
+
+B) Voice Activity Detection (VAD) + Endpointing
+
+// TASK: Add robust VAD + endpointing for streaming ASR.
+// Implement WebRTC VAD (aggressiveness 2–3) OR Silero VAD.
+// Emit "segment start" on speech onset; "segment end" after 300–500 ms of silence.
+// Parameters: min_speech_ms=200, min_silence_ms=300, max_segment_ms=15000.
+// Only send audio to ASR while "in speech" to reduce hallucinations.
+// Include jitter buffer (±100 ms) to avoid word truncation at edges.
+
+
+C) Chunking & Overlap Logic (Prevents Repeats)
+
+// TASK: Rework chunker to use fixed windows with controlled overlap.
+// Use window=20s, hop=5s for batch; for streaming use 1–2s frames with 0.5s overlap.
+// Maintain rolling "emitted_tokens" and do n-gram dedup across overlap boundaries.
+// Only accept new tokens whose char range does NOT fully overlap previously emitted timestamps.
+
+
+D) Decoder Configuration (Whisper / Faster-Whisper Examples)
+
+// TASK: Configure Whisper to reduce repetitions and hallucinations.
+// - temperature: start at 0.0, enable temperature cycling up to 0.5 on failure
+// - beam_size: 5–10 (or best_of=5 for greedy variants)
+// - condition_on_previous_text: false
+// - no_speech_threshold: 0.6
+// - logprob_threshold: -1.0
+// - compression_ratio_threshold: 2.4
+// - suppress_tokens: [-1] plus built-in list
+// - language: set explicitly when known
+// - initial_prompt: domain keywords
+// - vad_filter: true with vad_parameters(min_silence_duration_ms=300)
+// - word_timestamps: true
+
+
+E) Interim vs. Final Results (Debounce + Stability)
+
+// TASK: Implement a stability gate for partial transcripts.
+// Keep a rolling buffer of partial tokens with timestamps+logprobs.
+// Only emit to UI if either:
+//   a) token is older than 1.0s and unchanged for 2 consecutive frames, or
+//   b) segment closed by VAD.
+// Debounce UI updates to 100–250 ms to avoid flicker and early repeats.
+
+
+F) Post-Processing Guards (Safe De-dup + Confidence Filter)
+
+// TASK: Add post-processing to reduce repeats and extras.
+// - Remove immediate duplicate n-grams up to n=3.
+// - Drop trailing filler words if avg_logprob < -1.2 or confidence < 0.6.
+// - If two adjacent words overlap >70% in timestamps, keep the higher-confidence one.
+// - Preserve punctuation and casing.
+// - Add language-specific contraction and numeral rules.
+
+
+G) Domain & Punctuation Models
+
+// TASK: Add lightweight punctuation + capitalization model post-ASR.
+// Add domain lexicon for biasing via initial_prompt or hotwords.
+// Provide hooks to update the lexicon at runtime.
+
+
+H) Testing & Metrics
+
+// TASK: Add an evaluation harness for ASR:
+// - Build gold dataset (10–30 clips) representing your environment.
+// - Compute WER, CER, and repetitions per minute (RPM).
+// - Log avg token logprob and extra-word rate.
+// - Add regression tests to fail if WER or RPM worsen by >10%.
+// - Save per-segment JSON logs.
+
+
+I) Logging & Observability
+
+// TASK: Add debug hooks:
+// - Print decoder params per segment.
+// - Plot VAD states with timestamps.
+// - Emit diff between interim/final transcripts.
+// - Redact PII in logs.
+
+
+Minimal Config Example (Faster-Whisper)
+
+asr = WhisperModel("medium.en", compute_type="int8_float16")
+segments, _ = asr.transcribe(
+    audio, 
+    beam_size=8,
+    temperature=0.0,
+    vad_filter=True, 
+    vad_parameters=dict(min_silence_duration_ms=300),
+    condition_on_previous_text=False,
+    word_timestamps=True,
+    no_speech_threshold=0.6,
+    log_prob_threshold=-1.0,
+    compression_ratio_threshold=2.4,
+    initial_prompt="Product names: Recipeh, Kafka, ZMK; tech terms: Kubernetes, Kafka, S3."
+)
+
+
+Overlap-Aware De-dup (Pseudo)
+
+def emit_new_words(words, already_emitted, iou_thresh=0.7):
+    out = []
+    for w in words:
+        if not overlaps_mostly(w, already_emitted, iou_thresh):
+            out.append(w)
+            already_emitted.add(w)
+    return out
+
+
+Stability Gating for Partials (Pseudo)
+
+if (same_as_last_two(partial_text) and age(partial_text) > 1.0) or vad_segment_closed:
+    publish(partial_text_finalized)
+
+
+Copilot Meta-Prompt (Add to PR/README)
+
+“Our STT repeats words and hallucinates extras. Please:
+1) add VAD + endpointing (min_silence_ms=300),
+2) disable condition_on_previous_text, use beam search 8, temp 0.0→0.5 cycling,
+3) implement overlap-aware chunking with n-gram de-dup across boundaries,
+4) gate partials via stability (unchanged across 2 ticks or >1.0s old),
+5) add post-proc to remove immediate n-gram repeats and low-confidence tails,
+6) expose all params in config,
+7) add a tiny gold set with WER/RPM metrics and fail CI on regression.”
+
+
